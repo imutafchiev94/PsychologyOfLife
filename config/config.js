@@ -1,9 +1,11 @@
 configuration = {
     development: {
         PORT: 5000,
-        connectionString: "mongodb://localhost/psyhologyOfLife" 
+        connectionString: "mongodb+srv://admin:admin@psychologyoflife.cwidl.mongodb.net/psychologyOfLife?retryWrites=true&w=majority" 
     },
     production: {
         PORT: 80,
     }
 }
+
+module.exports = configuration[process.env.NODE_ENV.trim()];
