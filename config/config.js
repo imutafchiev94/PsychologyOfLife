@@ -5,6 +5,7 @@ configuration = {
     },
     production: {
         PORT: 80,
+        connectionString: "mongodb+srv://admin:admin@psychologyoflife.cwidl.mongodb.net/psychologyOfLife?retryWrites=true&w=majority" 
     }
 }
 
