@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>{{title}}</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Психология на живота</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Начало</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" type="button" id="navbarBlogDropdown"  data-toggle="dropdown" >
+                        Блог
+                        </a>
+                        <div class="dropdown-menu" role="menu" aria-labelledby="navbarBlogDropdown" id="blog">
+                            {{!-- To make foreach loop for all categories
+                            <a class="dropdown-item" href="/blog/category/{{this._id}}">{{this.name}}</a> --}}
+                            <a class="dropdown-item" href="/blog/category/{{this._id}}">Психологически игри</a>
+                            <a class="dropdown-item" href="/blog/category/{{this._id}}">Психология</a>
+                            <a class="dropdown-item" href="/blog/category/{{this._id}}">Притчи</a>
+                            <a class="dropdown-item" href="/blog/">Всички</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">За мен</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacts">Контакти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/forum">Форум</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-1">
+                     <li class="nav-item">
+                        <a class="nav-link" href="/user/login">Вход</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/user/register">Регистрация</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+   {{{body}}}
+
+    <footer>
+        Psychology of life
+    </footer>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+</body>
+</html>
