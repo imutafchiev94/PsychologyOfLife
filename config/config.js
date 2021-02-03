@@ -1,5 +1,5 @@
 configuration = {
-    PORT: 5000,
+    PORT: process.env.PORT || 3000,
     connectionString: "mongodb+srv://admin:admin@psychologyoflife.cwidl.mongodb.net/psychologyOfLife?retryWrites=true&w=majority" 
 }
 
