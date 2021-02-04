@@ -1,0 +1,58 @@
+#section-head {
+    background-color: darkslategray;
+    padding: 5%;
+}
+
+#section-footer {
+    background-color: pink;
+    padding: 5%;
+}
+
+footer {
+    background-color: darkcyan;
+    padding: 2%;
+    justify-content: center;
+}
+
+#footer-logo {
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.socials {
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    margin: 5%;
+    padding: 5%;
+}
+
+#welcome-header {
+    font-size: 55px;
+    font-weight: bold;
+    font-style: italic;
+    color: lavender;
+    
+}
+
+#text {
+    font-size: 15px;
+    font-style: italic;
+    margin-top: 7%;
+}
+
+.welcome-box img {
+    max-width: 600px;
+    margin-top: 7%;
+}
+
+
+
+/* 
+.welcome-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+} */
