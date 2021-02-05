@@ -25,6 +25,8 @@ const articleScema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'View'
     }],
+    totalVote: Number,
+    isDeleted: Boolean,
 });
 
 module.exports = mongoose.model('Article', articleScema);

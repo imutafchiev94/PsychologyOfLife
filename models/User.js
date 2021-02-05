@@ -7,8 +7,12 @@ const userSchema = new mongoose.Schema({
         type: String,
          validate: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
         },
+    isEmailConfirmed: Boolean,
     firstName: String,
     lastName: String,
-    age: Number,
-    
-})
+    createdAt: Date,
+    updatedAt: Date,
+    isDeleted: Boolean,
+});
+
+module.exports = mongoose.model('User', userSchema);

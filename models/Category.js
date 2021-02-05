@@ -11,7 +11,8 @@ const categorySchema = new mongoose.Schema({
     updatedBy: String,
     articles: [{
         type: mongoose.Types.ObjectId, ref: 'Article'
-    }]
+    }],
+    isDeleted: Boolean,
 })
 
 module.exports = mongoose.model('Category', categorySchema);

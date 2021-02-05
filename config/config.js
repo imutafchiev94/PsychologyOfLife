@@ -3,8 +3,4 @@ configuration = {
      
 }
 
-// cloudinary secret: uiYiEPH5drPsgdwvHXdvLtBcTGU
-// cloud name: PsychologyOfLife
-// Api Key: 252246829665622
-
 module.exports = configuration;

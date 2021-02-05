@@ -1,19 +1,13 @@
 const {Router} = require('express');
-const nodemailer = require('nodemailer');
+const categoryService = require('../services/categoryService');
 
-const mailConfig = require('../config/mailConfig');
 const cloudinary = require('../config/cloudinaryConfig');
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
 
-    let info = await mailConfig.sendMail({
-        from: 'Fred Foo <admin@psychologyoflife.live>', // sender address
-        to: 'Test "i.tomowa96@gmail.com"', // list of receivers
-        subject: "Личен Имейл на Психология на живота ✔", // Subject line
-        text: "Любов моя вече имаш личен имейл на психология на живота който е е admin@psychologyoflife.live и този имейл ти го пращам от сайта на психология на живота", // plain text body
-      });
+    console.log(categoryService.getAll());
 
     res.render('index', {title: 'Начална Страница'});
 });

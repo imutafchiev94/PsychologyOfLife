@@ -1,6 +1,10 @@
 const {Router} = require('express');
 const cloudinary = require('cloudinary').v2;
 
+
+
+
+
 const cloudinaryConfig = require('../config/cloudinaryConfig')
 
 cloudinary.config(cloudinaryConfig);
@@ -13,4 +17,9 @@ router.get('/create', (req, res) => {
 
 router.post('/create', (req, res) => {
 
+    console.log(req.body);
+    console.log(req.files.imageUrl);
+    
 })
+
+module.exports = router;
