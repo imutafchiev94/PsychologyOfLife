@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const categorySchema = new mongoose.Schema({
-    _id: Number,
     title: String,
     description: String,
     imageUrl: String,
@@ -13,6 +12,7 @@ const categorySchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId, ref: 'Article'
     }],
     isDeleted: Boolean,
+    
 })
 
 module.exports = mongoose.model('Category', categorySchema);

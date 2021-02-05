@@ -1,13 +1,12 @@
 const {Router} = require('express');
-const cloudinary = require('cloudinary').v2;
+
+const multipart = require('connect-multiparty');
+const multipartMiddleware = multipart();
 
 
 
+const categoryService = require('../services/categoryService');
 
-
-const cloudinaryConfig = require('../config/cloudinaryConfig')
-
-cloudinary.config(cloudinaryConfig);
 
 const router = Router();
 
@@ -15,11 +14,13 @@ router.get('/create', (req, res) => {
     res.render('createCategory', {title: 'Create Category'});
 })
 
-router.post('/create', (req, res) => {
+router.post('/create', multipartMiddleware, (req, res) => {
 
-    console.log(req.body);
-    console.log(req.files.imageUrl);
-    
+    let filename = req.files.imageUrl.path;
+
+    categoryService.create(req.body, filename).
+    then(res.redirect('/'))
+    .catch(res.status(500).end());
 })
 
 module.exports = router;
