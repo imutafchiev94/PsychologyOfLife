@@ -5,16 +5,16 @@
 
 #section-footer {
     background-color: pink;
-    padding: 5%;
+    padding: 1%;
 }
 
 footer {
     background-color: darkcyan;
-    padding: 2%;
     justify-content: center;
 }
 
 #footer-logo {
+    padding-top: 1%;
     font-size: 25px;
     font-weight: bold;
     font-style: italic;
