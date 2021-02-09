@@ -1,5 +1,5 @@
 configuration = {
-    PORT: 3589,    
+    PORT: 3000,    
 }
 
 module.exports = configuration;

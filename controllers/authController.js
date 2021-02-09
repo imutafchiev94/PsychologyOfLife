@@ -20,7 +20,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_CLIENT_APP_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_APP_SECRET,
-      callbackURL: "http://localhost:3589/user/login/facebook/callback",
+      callbackURL: "http://www.psychologyoflife.live/user/login/facebook/callback",
       profileFields: ["id", "displayName", "name", "email"],
     },
     async function (accessToken, refreshToken, profile, done) {
@@ -55,7 +55,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_APP_ID,
       clientSecret: process.env.GOOGLE_CLIENT_APP_SECRET,
-      callbackURL: "http://localhost:3589/user/login/google/callback",
+      callbackURL: "http://www.psychologyoflife.live/user/login/google/callback",
       profileFields: ["id", "displayName", "name", "email"],
     },
     async function (accessToken, refreshToken, profile, done) {
