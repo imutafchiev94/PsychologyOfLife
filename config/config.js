@@ -1,5 +1,5 @@
 configuration = {
-    PORT: 3000,    
+    PORT: process.env.Port || 3000,    
 }
 
 module.exports = configuration;
