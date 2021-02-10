@@ -3,8 +3,9 @@ const passport = require("passport");
 const passportFacebook = require("passport-facebook");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("../models/User");
-const { propfind } = require("./homeController");
 const authService = require("../services/authService");
+const isGuest = require('../middlewares/isGuest');
+const isAuthenticated = require('../middlewares/isAuthenticated');
 
 const router = Router();
 
@@ -111,11 +112,11 @@ router.get(
   })
 );
 
-router.get("/login", (req, res) => {
+router.get("/login", isGuest, (req, res) => {
   res.render("login");
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", isGuest ,async (req, res) => {
 
   try {
     let token = await authService.login(req.body);
@@ -128,11 +129,11 @@ router.post("/login", async (req, res) => {
     
 })
 
-router.get('/register', (req, res) => {
+router.get('/register', isGuest, (req, res) => {
     res.render("register")
 })
 
-router.post("/register", async (req, res) => {
+router.post("/register", isGuest, async (req, res) => {
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
 
@@ -144,7 +145,7 @@ router.post("/register", async (req, res) => {
 
     try {
 
-        let user = await authService.register(req.body);
+        await authService.register(req.body);
 
         res.redirect('/user/login');
 
@@ -165,7 +166,7 @@ router.get('/emailverification/:token', async (req, res) => {
   } 
 })
 
-router.get('/logout', (req, res) => {
+router.get('/logout', isAuthenticated, isAuthenticated , (req, res) => {
   res.clearCookie(process.env.COOKIE_SESSION_NAME);
 
   res.redirect('/');

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+
 const cloudinary = require('cloudinary').v2;
 
 const Category = require('../models/Category');

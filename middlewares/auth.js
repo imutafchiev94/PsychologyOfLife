@@ -5,7 +5,7 @@ module.exports = function () {
         let token = req.cookies[process.env.COOKIE_SESSION_NAME];
 
         if(token) {
-            let userId = jwt.verify(token, process.env.USER_SESION_SECRET, function(err, decoded) {
+            jwt.verify(token, process.env.USER_SESION_SECRET, function(err, decoded) {
                 if(err) {
                     res.clearCookie(process.env.COOKIE_SESSION_NAME);
                 } else {

@@ -1,4 +1,41 @@
-<main class="container-fluid m-4">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    {{#if message}}
+      <div class="alert alert-danger" role="alert">{{message}}</div>
+    {{/if}}
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img
+        src="https://res.cloudinary.com/psychologyoflife/image/upload/v1612950921/icon-think-user-centric-1_hi9ejw.png"
+        id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form method="POST">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="Потребителско име">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Парола">
+      <input type="password" id="passwordConfirm" class="fadeIn fourth" name="passwordConfirm" placeholder="Повтори паролата">
+      <input type="email" id="email" class="fadeIn fifth" name="email" placeholder="Имейл">
+      <input type="text" id="firstName" class="fadeIn sixth" name="firstName" placeholder="Първо име">
+      <input type="text" id="lastname" class="fadeIn seventh" name="lastName" placeholder="Фамилия">
+      <input type="number" id="age" class="fadeIn eighth" name="age" placeholder="Години">
+      <input type="submit" class="fadeIn ninth" value="Регистрация">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter fadeIn tenth">
+      <a href="/user/login/facebook/" class="btn m-4 facebook-button">Влез през <i class="fab fa-facebook-square"></i></a>
+      <a href="/user/login/google/" class="btn m-4 google-button">Влез през <i class="fab fa-google"></i></a>
+    </div>
+
+    </form>
+
+  </div>
+</div>
+
+
+{{!-- <main class="container-fluid m-4">
   {{#if message}}
     <div class="alert alert-danger" role="alert">{{message}}</div>
   {{/if}}
@@ -37,4 +74,4 @@
     <a href="/user/login/facebook/" class="btn facebook-button">Влез през <i class="fab fa-facebook-square"></i></a>
     <a href="/user/login/google/" class="btn google-button">Влез през <i class="fab fa-google"></i></a>
 </form>
-</main>
+</main> --}}

@@ -63,8 +63,6 @@ const register = async (data) => {
 async function login({ username, password }) {
   let user = await User.findOne({ username }).populate("role").lean();
 
-  let role = await UserRole.findOne({ name: "admin" });
-
   if (!user) {
     return { message: "Wrong Credentials" };
   }
