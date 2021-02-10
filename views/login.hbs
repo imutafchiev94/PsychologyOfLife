@@ -1,16 +1,20 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
-
+    {{#if message}}
+      <div class="alert alert-danger" role="alert">{{message}}</div>
+    {{/if}}
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+      <img
+        src="https://res.cloudinary.com/psychologyoflife/image/upload/v1612950921/icon-think-user-centric-1_hi9ejw.png"
+        id="icon" alt="User Icon" />
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+    <form method="POST">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
@@ -19,12 +23,9 @@
       <a class="underlineHover" href="#">Forgot Password?</a>
     </div>
 
-        <a href="/user/login/facebook/" class="btn facebook-button">Влез през <i class="fab fa-facebook-square"></i></a>
-        <a href="/user/login/google/" class="btn google-button">Влез през <i class="fab fa-google"></i></a>
+    <a href="/user/login/facebook/" class="btn m-4 facebook-button">Влез през <i class="fab fa-facebook-square"></i></a>
+    <a href="/user/login/google/" class="btn m-4 google-button">Влез през <i class="fab fa-google"></i></a>
     </form>
 
   </div>
 </div>
-
-
-

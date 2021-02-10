@@ -24,6 +24,14 @@ const userSchema = new mongoose.Schema({
     imageUrl: {
         type: String,
         required: false
+    },
+    age: {
+        type: Number,
+        required: false
+    },
+    role: {
+        type: mongoose.Types.ObjectId,
+        ref: 'UserRole'
     }
 });
 

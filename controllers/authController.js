@@ -4,6 +4,7 @@ const passportFacebook = require("passport-facebook");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("../models/User");
 const { propfind } = require("./homeController");
+const authService = require("../services/authService");
 
 const router = Router();
 
@@ -114,6 +115,19 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.post("/login", async (req, res) => {
+
+  try {
+    let token = await authService.login(req.body);
+    console.log(token);
+    res.cookie(process.env.COOKIE_SESSION_NAME, token);
+    res.redirect('/');
+  } catch (err) {
+    res.render('login', {err})
+  }
+    
+})
+
 router.get('/register', (req, res) => {
     res.render("register")
 })
@@ -132,8 +146,12 @@ router.post("/register", async (req, res) => {
 
         let user = await authService.register(req.body);
 
+        res.redirect('/user/login');
+
     } catch (err) {
 
+        res.render('register', {err});
+        
     }
 
 })
