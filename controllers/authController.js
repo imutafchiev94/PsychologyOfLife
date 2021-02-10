@@ -156,4 +156,19 @@ router.post("/register", async (req, res) => {
 
 })
 
+router.get('/emailverification/:token', async (req, res) => {
+  try {
+    await authService.validateEmail(req.params.token);
+    res.redirect('/user/login');
+  } catch(err) {
+    res.redirect('/user/login', {err})
+  } 
+})
+
+router.get('/logout', (req, res) => {
+  res.clearCookie(process.env.COOKIE_SESSION_NAME);
+
+  res.redirect('/');
+})
+
 module.exports = router;

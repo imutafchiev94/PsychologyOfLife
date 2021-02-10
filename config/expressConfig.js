@@ -3,6 +3,7 @@ const handlebars = require('express-handlebars');
 const passport = require('passport');
 // const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const auth = require('../middlewares/auth');
 
 
 function setupExpress(app) {
@@ -19,6 +20,7 @@ function setupExpress(app) {
     // app.use(passport.session());
     // app.use(session({secret: "secreteraertfsdas"}));
     app.use(cookieParser());
+    app.use(auth());
 }
 
 module.exports = setupExpress
