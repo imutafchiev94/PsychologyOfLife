@@ -64,13 +64,17 @@ async function login({ username, password }) {
   let user = await User.findOne({ username }).populate("role").lean();
 
   if (!user) {
-    return { message: "Wrong Credentials" };
+    throw { message: "Wrong Credentials" };
   }
 
   let isMatch = await bcrypt.compare(password, user.passwordHash);
 
   if (!isMatch) {
-    return { message: "Wrong Credentials" };
+    throw { message: "Wrong Credentials" };
+  }
+
+  if(!user.isEmailConfirmed) {
+    throw { message: "Email is not verified. Please verify your email first!" };
   }
 
   let token = jwt.sign(
@@ -88,7 +92,7 @@ async function validateEmail(token) {
     process.env.MAIL_VALIDATION_SECRET,
     function (err, decoded) {
       if (err) {
-        return { err };
+        throw { err };
       }
       userId = decoded._id;
     }

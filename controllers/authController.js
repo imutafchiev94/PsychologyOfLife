@@ -6,15 +6,18 @@ const User = require("../models/User");
 const authService = require("../services/authService");
 const isGuest = require('../middlewares/isGuest');
 const isAuthenticated = require('../middlewares/isAuthenticated');
+const jwt = require('jsonwebtoken');
 
 const router = Router();
 
 passport.serializeUser(function (user, done) {
-  done(null, user);
+  done(null, user.id);
 });
 
-passport.deserializeUser(function (obj, done) {
-  done(null, obj);
+passport.deserializeUser(function (id, done) {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
 });
 
 passport.use(
@@ -57,7 +60,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_APP_ID,
       clientSecret: process.env.GOOGLE_CLIENT_APP_SECRET,
-      callbackURL: "http://www.psychologyoflife.live/user/login/google/callback",
+      callbackURL: "http://localhost:3000/user/login/google/callback",
       profileFields: ["id", "displayName", "name", "email"],
     },
     async function (accessToken, refreshToken, profile, done) {
@@ -88,7 +91,7 @@ passport.use(
 
 router.get(
   "/login/facebook",
-  passport.authenticate("facebook", { scope: "email" })
+  passport.authenticate("facebook", { scope: ["public_profile", "email"]})
 );
 
 router.get(
@@ -100,16 +103,22 @@ router.get(
 );
 
 router.get(
-  "/login/google",
-  passport.authenticate("google", { scope: "email" })
+  "/login/google", isGuest, 
+  passport.authenticate("google", { scope: ["profile", "email" ]})
 );
 
 router.get(
   "/login/google/callback",
-  passport.authenticate("google", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-  })
+  passport.authenticate("google"),(req, res) => {
+    
+  let token = jwt.sign(
+    { _id: req.user._Id, username: req.user.displayName},
+    process.env.USER_SESION_SECRET
+  );
+
+  res.cookie(process.env.COOKIE_SESSION_NAME, token);
+  res.redirect('/');
+  }
 );
 
 router.get("/login", isGuest, (req, res) => {
@@ -123,8 +132,8 @@ router.post("/login", isGuest ,async (req, res) => {
     console.log(token);
     res.cookie(process.env.COOKIE_SESSION_NAME, token);
     res.redirect('/');
-  } catch (err) {
-    res.render('login', {err})
+  } catch (message) {
+    res.render('login', {message})
   }
     
 })
@@ -136,6 +145,8 @@ router.get('/register', isGuest, (req, res) => {
 router.post("/register", isGuest, async (req, res) => {
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
+
+    console.log(confirmPassword);
 
     if(password !== confirmPassword)
     {
