@@ -15,7 +15,13 @@
                     <p class="card-text">
                         {{shortDescription content}}
                     </p>
+                    <hr>
                     <p class="card-text">
+                        {{#if totalVote}}
+                            <small class="text-muted mr-3">{{totalVote}} <ion-icon name="heart" class="vote-heart"></ion-icon></small>
+                        {{else}}
+                            <small class="text-muted mr-3">0 <ion-icon name="heart" class="vote-heart"></ion-icon></small>
+                        {{/if}}
                         {{#if views}}
                             <small class="text-muted mr-3">{{views.lenth}} преглеждания</small>
                         {{else}}
@@ -27,7 +33,7 @@
                             <small class="text-muted mr-3"> 0 коментари</small>
                         {{/if}}
                     </p>
-                    <hr>
+                    
                 </div>
             </div>
         </div>

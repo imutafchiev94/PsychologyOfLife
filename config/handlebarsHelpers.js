@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = {
     shortDescription: function (content) {
         if(this.content.length > 180) {
@@ -5,5 +7,9 @@ module.exports = {
         }
     
         return this;
+    },
+
+    createdAt: function(createdAt) {
+        
     }
 }

@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     let articles = await blogService.getAll();
     let categories = await categoryService.getAll();
 
-
+    
     res.render('blog/allArticles', {title: 'Всички Статии', categories, articles,})
 })
 
