@@ -1,7 +1,37 @@
-<main class="container-fluid">
-<h1 class="text-center">Create Category</h1>
-  <form method="post" action="/blog/category/create" enctype="multipart/form-data">
-    <div class="form-group">
+  <div class="wrapper fadeInDown mt-4">
+  <div id="admin-formContent">
+    <!-- Tabs Titles -->
+    {{#if message}}
+      <div class="alert alert-danger" role="alert">{{message}}</div>
+    {{/if}}
+    <!-- Icon -->
+<div class="fadeIn first my-4">
+      <h1 class="text-center">Създаване на категория</h1>
+    </div>
+
+    <div class="fadeIn second">
+      <img
+        src="https://res.cloudinary.com/psychologyoflife/image/upload/v1612950921/icon-think-user-centric-1_hi9ejw.png"
+        id="admin-form-icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form method="POST" enctype="multipart/form-data">
+      <input type="text" id="title" class="fadeIn third" name="title" placeholder="Заглавие на категория">
+      <textarea id="description" class="fadeIn fourth" rows="6" name="description" placeholder="Описание на категория"></textarea>
+      <div class="fadeIn fifth mb-3">
+      <input type="file" id="actual-btn" name="imageUrl" hidden/>
+      <label for="actual-btn" class="upload-button">Избери файл</label>
+      <span id="file-chosen">Няма избрани файлове</span>
+      </div>
+      <input type="submit" class="fadeIn sixth" value="Създаване">
+    </form>
+   
+
+  </div>
+</div>
+  <!-- /end .formgroup -->
+    {{!-- <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" id="title" name="title">
     </div>
@@ -15,6 +45,15 @@
     </div>
     <div class="form-group">
       <input type="submit" value="Create" class="btn btn-primary">
-    </div>
-  </form>
-</main>
+    </div> --}}
+
+
+<script>
+  const actualBtn = document.getElementById('actual-btn');
+
+const fileChosen = document.getElementById('file-chosen');
+
+  actualBtn.addEventListener('change', function(){
+  fileChosen.textContent = this.files[0].name
+})
+</script>

@@ -39,8 +39,6 @@ router.post('/create', isAdmin, multipartMiddleware , async (req, res) => {
 })
 
 
-
-
 router.use('/category', categoryController);
 
 module.exports = router;
