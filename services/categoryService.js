@@ -25,7 +25,7 @@ async function create(data, imageUrl) {
     };
 
 
-    //console.log(cloudinaryConfig)
+
 
     await cloudinary.uploader.upload(imageUrl, {resource_type: "image"}).
     then(function(file) {categoryModel.imageUrl = file.url}).
@@ -37,7 +37,14 @@ async function create(data, imageUrl) {
     return category.save();
 }
 
+async function getOne(categoryId) {
+    let category = await Category.findById(categoryId).lean();
+
+    return category;
+}
+
 module.exports = {
     getAll,
     create,
+    getOne
 }

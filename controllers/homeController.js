@@ -1,17 +1,25 @@
 const {Router} = require('express');
 
+const categoryService = require('../services/categoryService');
+
 const router = Router();
 
-router.get('/', (req, res) => {
-    res.render('index', {title: 'Начална Страница'});
+router.get('/', async (req, res) => {
+    let categories = await categoryService.getAll();
+    
+    res.render('home/index', {title: 'Начална Страница', categories});
 });
 
-router.get('/about', (req, res) => {
-    res.render('about', {title: 'За Мен'});
+router.get('/about', async (req, res) => {
+    let categories = await categoryService.getAll();
+
+    res.render('home/about', {title: 'За Мен', categories});
 });
 
-router.get('/contacts', (req, res) => {
-    res.render('contacts', {title: 'Контакти'});
+router.get('/contacts', async (req, res) => {
+    let categories = await categoryService.getAll();
+
+    res.render('home/contacts', {title: 'Контакти', categories});
 });
 
 module.exports = router;

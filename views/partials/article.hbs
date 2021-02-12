@@ -1,0 +1,34 @@
+<div class="card mb-4 mt-4 article">
+        <div class="row g-0">
+            <div class="col-md-6"> 
+                <a href="/blog/{{_id}}">
+                <img src="{{imageUrl}}" alt="image"
+                    class="img-fluid" />
+                </a>
+            </div>
+            <div class="col-md-6">
+                <div class="card-body text-dark">
+                    <p class="card-text">
+                        <small class="text-muted">{{createdAt}}</small>
+                    </p>
+                    <h5 class="card-title"><a href="/blog/{{_id}}" class="article-link">{{title}}</a></h5>
+                    <p class="card-text">
+                        {{shortDescription content}}
+                    </p>
+                    <p class="card-text">
+                        {{#if views}}
+                            <small class="text-muted mr-3">{{views.lenth}} преглеждания</small>
+                        {{else}}
+                            <small class="text-muted mr-3"> 0 преглеждания</small>
+                        {{/if}}
+                        {{#if comments}}
+                            <small class="text-muted mr-3">{{comments.length}} коментари</small>
+                        {{else}}
+                            <small class="text-muted mr-3"> 0 коментари</small>
+                        {{/if}}
+                    </p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>

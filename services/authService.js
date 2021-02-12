@@ -15,7 +15,6 @@ const register = async (data) => {
     $or: [{ username: data.username }, { email: data.email }],
   }).exec();
 
-  console.log(user);
 
   if (!user) {
     let userData = {
@@ -41,7 +40,7 @@ const register = async (data) => {
       process.env.MAIL_VALIDATION_SECRET
     );
 
-    console.log(emailToken);
+
 
     let verificationLink = `http://localhost:3000/user/emailverification/${emailToken}`;
 
@@ -52,7 +51,6 @@ const register = async (data) => {
       text: `Please click on the link to verify your email ${verificationLink}`,
     });
 
-    console.log(email);
 
     return await user.save();
   } else {
@@ -98,10 +96,8 @@ async function validateEmail(token) {
     }
   );
 
-  console.log(userId);
 
   let user = await User.findById(userId);
-  console.log(user);
   await user.set({ isEmailConfirmed: true });
   await user.save();
 }

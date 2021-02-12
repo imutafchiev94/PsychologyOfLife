@@ -4,12 +4,14 @@ const passport = require('passport');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const auth = require('../middlewares/auth');
+const { deserializeUser } = require('passport');
 
 
 function setupExpress(app) {
 
     app.engine('hbs', handlebars({
-        extname: 'hbs'
+        extname: 'hbs',
+        helpers: require('../config/handlebarsHelpers')
     }));
 
     app.set('view engine', 'hbs');

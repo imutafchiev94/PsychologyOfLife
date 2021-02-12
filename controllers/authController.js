@@ -7,6 +7,7 @@ const authService = require("../services/authService");
 const isGuest = require('../middlewares/isGuest');
 const isAuthenticated = require('../middlewares/isAuthenticated');
 const jwt = require('jsonwebtoken');
+const categoryService = require('../services/categoryService');
 
 const router = Router();
 
@@ -121,8 +122,10 @@ router.get(
   }
 );
 
-router.get("/login", isGuest, (req, res) => {
-  res.render("login");
+router.get("/login", isGuest, async (req, res) => {
+  let categories = await categoryService.getAll();
+
+  res.render("user/login", {title: "Вход", categories});
 });
 
 router.post("/login", isGuest ,async (req, res) => {
@@ -133,13 +136,15 @@ router.post("/login", isGuest ,async (req, res) => {
     res.cookie(process.env.COOKIE_SESSION_NAME, token);
     res.redirect('/');
   } catch (message) {
-    res.render('login', {message})
+    res.render('user/login', {message})
   }
     
 })
 
-router.get('/register', isGuest, (req, res) => {
-    res.render("register")
+router.get('/register', isGuest, async (req, res) => {
+    let categories = await categoryService.getAll();
+
+    res.render("user/register", {title: "Регистрация", categories})
 })
 
 router.post("/register", isGuest, async (req, res) => {
@@ -150,7 +155,7 @@ router.post("/register", isGuest, async (req, res) => {
 
     if(password !== confirmPassword)
     {
-        res.render('register' ,{message: "password missmatch"});
+        res.render('user/register' ,{message: "password missmatch"});
         return;
     }
 
@@ -160,9 +165,9 @@ router.post("/register", isGuest, async (req, res) => {
 
         res.redirect('/user/login');
 
-    } catch (err) {
+    } catch (message) {
 
-        res.render('register', {err});
+        res.render('user/register', {message});
         
     }
 
@@ -172,12 +177,12 @@ router.get('/emailverification/:token', async (req, res) => {
   try {
     await authService.validateEmail(req.params.token);
     res.redirect('/user/login');
-  } catch(err) {
-    res.redirect('/user/login', {err})
+  } catch(message) {
+    res.redirect('/user/login')
   } 
 })
 
-router.get('/logout', isAuthenticated, isAuthenticated , (req, res) => {
+router.get('/logout', isAuthenticated, (req, res) => {
   res.clearCookie(process.env.COOKIE_SESSION_NAME);
 
   res.redirect('/');
