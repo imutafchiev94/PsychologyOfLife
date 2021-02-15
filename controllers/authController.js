@@ -49,7 +49,7 @@ passport.use(
         new User(userData).save();
       } else {
         
-        console.log(user._id);
+
       }
       return done(null, profile);
     }
@@ -132,7 +132,7 @@ router.post("/login", isGuest ,async (req, res) => {
 
   try {
     let token = await authService.login(req.body);
-    console.log(token);
+
     res.cookie(process.env.COOKIE_SESSION_NAME, token);
     res.redirect('/');
   } catch (message) {
@@ -151,7 +151,6 @@ router.post("/register", isGuest, async (req, res) => {
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
 
-    console.log(confirmPassword);
 
     if(password !== confirmPassword)
     {

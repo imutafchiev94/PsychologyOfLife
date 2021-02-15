@@ -2,106 +2,125 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/fontawesome-free-5.15.2-web/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="shortcut icon"
         href="https://res.cloudinary.com/psychologyoflife/image/upload/v1612943322/depositphotos_1395587-stock-photo-3d-golden-greek-letter-psi_b85epv.jpg"
         type="image/x-icon">
     <title>{{title}} - Psychology of Life</title>
 </head>
 
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-expand-md navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">Психология на живота</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Начало</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" role="button" id="navbarBlogDropdown" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Блог
-                        </a>
-                        <div class="dropdown-menu" role="menu" aria-labelledby="navbarBlogDropdown"
-                            id="navbarBlogDropdown">
-                            {{#each categories}}
-                            <a class="dropdown-item" href="/blog/category/{{this._id}}">{{this.title}}</a>
-                            {{/each}}
-                            <a class="dropdown-item" href="/blog/">Всички</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">За мен</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contacts">Контакти</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/forum">Форум</a>
-                    </li>
-                    {{#if isAdmin}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/blog/category/create">Създаване на категория</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/blog/create">Създаване на статия</a>
-                    </li>
-                    {{/if}}
-                </ul>
-                <ul class="navbar-nav mr-1">
-                    {{#unless isAuthenticated}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/user/login">Вход</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/user/register">Регистрация</a>
-                    </li>
-                    {{/unless}}
-                    {{#if isAuthenticated}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/user/profile/{{user._id}}">Добре дошъл {{user.username}}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/user/logout">Изход</a>
-                    </li>
-                    {{/if}}
-                </ul>
+<body id="page-top">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto" id="logo-navigation">
+              <li class="nav-item">
+                 <a class="navbar-brand" href="/"><img id="nav-logo" src="https://res.cloudinary.com/psychologyoflife/image/upload/v1613397496/Psychology_of_Life_3_gjrhod.png"></a>
+              </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Блог
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {{#each categories}}
+                    <a class="dropdown-item" href="/blog/category/{{this._id}}">{{this.title}}</a>
+                {{/each}}
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/blog/">Всички</a>
+              </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">За Мен</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contacts">Контакти</a>
+              </li>
+              {{#if isAdmin}}
+              <li class="nav-item">
+                <a class="nav-link" href="/blog/category/create">Създаване на Категория</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/blog/create">Създаване на статия</a>
+              </li>
+              {{/if}}
+          </ul>
+          <ul class="navbar-nav ml-auto" id="auth-nav">
+            {{#unless isAuthenticated}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/login">Вход</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/register">Регистер</a>
+                </li>
+            {{/unless}}
+            {{#if isAuthenticated}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/profile/{{user._id}}">Добре дошъл {{user.username}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/logout">Изход</a>
+                </li>
+            {{/if}}
+          </ul>
+        </div>
+      </nav>
+
+        {{{body}}}
+
+   <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-12">
+                    <p class="lead mb-0"></p>
+                    <h4 class="text-uppercase">Социални Мрежи</h4>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a class="btn btn-outline-light btn-social text-center rounded-circle" role="button" href="https://www.facebook.com/%D0%9F%D1%81%D0%B8%D1%85%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F-%D0%BD%D0%B0-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%B0-131206341993283/"><i class="fa fa-facebook fa-fw"></i></a></li>
+                    </ul>
+                </div>
             </div>
-        </nav>
-    </header>
-    <main id="page-container">
-    {{{body}}}
-    </main>
-    <footer class="flex-shrink-0">
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-    © 2021 Copyright:
-    <a class="text-light text-decoration-none" href="https://www.psychologyoflife.live/">Psychology of life</a> <br>
-    <a class="socials"
-        href="https://www.facebook.com/%D0%9F%D1%81%D0%B8%D1%85%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F-%D0%BD%D0%B0-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%B0-131206341993283/"><i
-        class="fab fa-facebook"></i>
-        </a>
-  </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
-        integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
-        crossorigin="anonymous"></script>
+        </div>
+    </footer>
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Copyright © Psychology Of Life</small></div>
+    </div>
+    {{!-- <footer class="flex-shrink-0">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2021 Copyright:
+            <a class="text-light text-decoration-none" href="https://www.psychologyoflife.live/">Psychology of life</a>
+            <br>
+            <a class="socials"
+                href="https://www.facebook.com/%D0%9F%D1%81%D0%B8%D1%85%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F-%D0%BD%D0%B0-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%B0-131206341993283/"><i
+                    class="fab fa-facebook"></i>
+            </a>
+        </div> --}}
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+            integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+            crossorigin="anonymous"></script>
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
         <script src="https://momentjs.com/downloads/moment.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="/js/script.min.js"></script>
 </body>
 
 </html>

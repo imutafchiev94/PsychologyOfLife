@@ -69,9 +69,6 @@ footer {
 
 /* BASIC */
 
-html {
-    background-color: darkslategray;
-  }
   
   body {
     font-family: "Poppins", sans-serif;
@@ -126,6 +123,28 @@ html {
   .article img {
     width: 500px;
     height: 360px;
+  }
+
+  #nav-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .navbar {
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  
+
+  #auth-nav {
+    margin-right:  80px;
+  }
+
+  #logo-navigation {
+    margin-left: 80px;
   }
   
   /* STRUCTURE */
