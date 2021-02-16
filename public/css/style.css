@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
 #section-head {
     background-color: darkslategray;
@@ -11,7 +14,7 @@
 }
 
 footer {
-    background-color: darkcyan;
+
     justify-content: center;
     /* position: fixed;
     bottom: 0%;
@@ -29,6 +32,41 @@ footer {
     font-size: 25px;
     font-weight: bold;
     font-style: italic;
+}
+
+#about-image-section {
+  background: radial-gradient(black, var(--green) 49%, white)
+}
+
+#aboutme-image {
+  width: 800px;
+  height: 800px;
+}
+
+.about-me-spaces {
+  margin-top: 30px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+#about-me-paragraph {
+  font-family: "Adamina, serif";
+}
+
+.about-me-blockquot {
+  margin-left: 60px;
+  margin-top: 40px;
+  padding-left: 20px;
+  border-left: 5px solid #18bc9c;
+}
+
+#blockquote-paragraph {
+  font-family: "Marck Script, cursive";
+}
+
+.about-header {
+  font-family: "Roboto Slab, serif";
+
 }
 
 .socials {
