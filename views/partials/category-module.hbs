@@ -1,0 +1,25 @@
+<div class="modal text-center" role="dialog" tabindex="-1" id="{{title}}-modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button></div>
+            <div class="modal-body">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <h2 class="text-uppercase text-secondary mb-0">{{title}}</h2>
+                            <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="{{imageUrl}}">
+                            <p class="mb-5">{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pb-5">
+                <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
+                    href="/blog/category/{{_id}}">
+                    Към категорията
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

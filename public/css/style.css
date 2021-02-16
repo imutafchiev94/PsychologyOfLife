@@ -133,11 +133,20 @@ footer {
   .navbar {
     font-size: 20px;
     color: white;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: bold;
   }
 
-  
+  .dropdown:hover .dropdown-menu{
+    display: block;
+}
+.dropdown-menu{
+    margin-top: 0;
+}
+
+  #welcome-message {
+    text-transform: capitalize;
+  }
 
   #auth-nav {
     margin-right:  80px;
@@ -158,6 +167,10 @@ footer {
     min-height: 100%;
     padding: 20px;
     background-color: darkslategray;
+  }
+
+  a {
+    text-decoration: none;
   }
   
   #formContent {
@@ -188,6 +201,17 @@ footer {
     text-align: center;
   }
 
+  .category-modal {
+    width: 250px;
+    height: 250px !important;
+  }
+
+  .category-img {
+    width: 250px;
+    height: 200px !important;
+    margin-bottom: 20px;
+  }
+
   #formFooter {
     background-color: lightsteelblue;
     border-top: 1px solid #dce8f1;
@@ -210,7 +234,10 @@ footer {
     border-bottom: 2px solid #5fbae9;
   }
   
-  
+  .card-group {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
   
   /* FORM TYPOGRAPHY*/
   

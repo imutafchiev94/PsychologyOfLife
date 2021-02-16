@@ -63,12 +63,12 @@
                     <a class="nav-link" href="/user/login">Вход</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/user/register">Регистер</a>
+                    <a class="nav-link" href="/user/register">Регистрация</a>
                 </li>
             {{/unless}}
             {{#if isAuthenticated}}
                 <li class="nav-item">
-                    <a class="nav-link" href="/user/profile/{{user._id}}">Добре дошъл {{user.username}}</a>
+                    <a class="nav-link" id="welcome-message" href="/user/profile/{{user._id}}">Добре дошъл {{user.username}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/user/logout">Изход</a>
@@ -83,11 +83,23 @@
    <footer class="footer text-center">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-12">
+                <div class="col-md-4">
+                    <p class="lead mb-0"></p>
+                    <h4 class="text-uppercase">За Мен</h4>
+                    <p>Ти , който четеш това искам широко да се усмихнеш , защото си една уникална личност , която има потенциала да постигне дори и невъзможното!</p>
+                </div>
+                <div class="col-md-4">
                     <p class="lead mb-0"></p>
                     <h4 class="text-uppercase">Социални Мрежи</h4>
                     <ul class="list-inline">
                         <li class="list-inline-item"><a class="btn btn-outline-light btn-social text-center rounded-circle" role="button" href="https://www.facebook.com/%D0%9F%D1%81%D0%B8%D1%85%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F-%D0%BD%D0%B0-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%B0-131206341993283/"><i class="fa fa-facebook fa-fw"></i></a></li>
+                    </ul>
+                </div>
+                 <div class="col-md-4">
+                    <p class="lead mb-0"></p>
+                    <h4 class="text-uppercase">Контакти</h4>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><i class="far fa-envelope mr-2 "></i> <a class="text-decoration-none text-light" href="mailto:psychologyoflife@zohomail.eu">psychologyoflife@zohomail.eu</a></li>
                     </ul>
                 </div>
             </div>
