@@ -21,6 +21,7 @@ footer {
     width: 100%; */
 }
 
+
 #page-container {
   position: relative;
   min-height: 100vh;
@@ -61,7 +62,34 @@ footer {
 }
 
 #blockquote-paragraph {
-  font-family: "Marck Script, cursive";
+  font-family: "Marck Script" !important;
+}
+
+.list-group-item {
+  border-style: none;
+}
+
+#latest-articles-sidebar {
+  /* margin-left: 10px; */
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.latest-articles {
+  padding-left: 150px;
+}
+
+.latest-add {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.latest-add > img {
+  width: 300px;
+  height: 200px;
 }
 
 .about-header {
@@ -159,8 +187,8 @@ footer {
 
 
   .article img {
-    width: 500px;
-    height: 360px;
+    width: 400px;
+    height: 260px;
   }
 
   #nav-logo {

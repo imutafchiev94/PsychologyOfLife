@@ -101,7 +101,7 @@ async function validateEmail(token) {
   await user.set({ isEmailConfirmed: true });
   await user.save();
 }
-
+ 
 module.exports = {
   register,
   login,

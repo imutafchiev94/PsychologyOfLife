@@ -1,7 +1,57 @@
 <h1 class="text-center m-4">Всички Статии</h1>
-
-<div class="d-flex justify-content-center">
-    {{#each articles}}
-        {{> article}}
-    {{/each}}
+<div class="row">
+    <div class="col-md-8">
+        <section>
+            <div class="d-flex justify-content-center">
+                {{#each articles}}
+                {{> article}}
+                {{/each}}
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4" id="latest-articles-sidebar">
+        <h2 class="text-center">Последно добавени статии</h2>
+        <div class="align-items-center latest-articles">
+        <a href="/" class="d-block latest-add">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://res.cloudinary.com/psychologyoflife/image/upload/v1613485251/135227106_300432055070710_3507966593624338425_o_z5le89.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+        </a>
+        <a href="/" class="d-block latest-add">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://res.cloudinary.com/psychologyoflife/image/upload/v1613485251/135227106_300432055070710_3507966593624338425_o_z5le89.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+        </a>
+        <a href="/" class="d-block latest-add">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://res.cloudinary.com/psychologyoflife/image/upload/v1613485251/135227106_300432055070710_3507966593624338425_o_z5le89.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+        </a>
+        <a href="/" class="d-block latest-add">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://res.cloudinary.com/psychologyoflife/image/upload/v1613485251/135227106_300432055070710_3507966593624338425_o_z5le89.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+        </a>
+        </div>
+    </div>
 </div>

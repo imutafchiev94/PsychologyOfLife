@@ -1,1 +1,26 @@
-<h1>Контакти</h1>
+<section id="contact">
+        <div class="container">
+            <h2 class="text-uppercase text-center d-block text-secondary mb-0">Свържете се с мен</h2>
+            <hr class="star-dark mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form id="contactForm" name="sentMessage" action="/contact" method="POST">
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Вашето име</label><input class="form-control" type="text" id="name" required="true" placeholder="Вашето име"><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Вашият Имейл</label><input class="form-control" type="email" id="email" required="true" placeholder="Вашият имейл"><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-1 pb-2"><label>Относно</label><input class="form-control" type="text" id="about" required="true" placeholder="Относно"><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-5 pb-2"><textarea class="form-control" id="message" required="true" placeholder="Вашето съобщение" rows="5"></textarea><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div id="success"></div>
+                        <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Изпрати</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
