@@ -1,7 +1,7 @@
 <div class="card mb-4 mt-4 article">
         <div class="row g-0">
             <div class="col-md-6"> 
-                <a href="/blog/{{_id}}">
+                <a href="/blog/{{_id}}" onclick="increaseViews({{_id}}, {{user._id}})">
                 <img src="{{imageUrl}}" alt="image"
                     class="img-fluid" />
                 </a>
@@ -39,3 +39,4 @@
             </div>
         </div>
     </div>
+

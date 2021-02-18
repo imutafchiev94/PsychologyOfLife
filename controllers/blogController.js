@@ -38,6 +38,9 @@ router.post('/create', isAdmin, multipartMiddleware , async (req, res) => {
     }
 })
 
+router.get('/:id', async (req, res) => {
+    res.render('blog/articleDetails');
+})
 
 router.use('/category', categoryController);
 
